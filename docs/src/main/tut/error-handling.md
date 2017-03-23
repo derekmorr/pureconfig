@@ -24,7 +24,7 @@ val notFound = KeyNotFound("xpto", ConfigValueLocation(cv)).location.get
 We can extract useful error data:
 ```tut:book
 // print the filename as a relative path
-Paths.get(System.getProperty("user.dir")).relativize(Paths.get(notFound.url.toURI))
+Paths.get(notFound.url.toURI).getFileName()
 
 notFound.lineNumber
 ```

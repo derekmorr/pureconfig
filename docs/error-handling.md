@@ -24,8 +24,8 @@ val notFound = KeyNotFound("xpto", ConfigValueLocation(cv)).location.get
 We can extract useful error data:
 ```scala
 // print the filename as a relative path
-Paths.get(System.getProperty("user.dir")).relativize(Paths.get(notFound.url.toURI))
-// res2: java.nio.file.Path = docs/target/scala-2.12/classes/application.conf
+Paths.get(notFound.url.toURI).getFileName()
+// res2: java.nio.file.Path = application.conf
 
 notFound.lineNumber
 // res3: Int = 11
